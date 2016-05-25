@@ -9,8 +9,8 @@
                  
         <title>FactAV 1.0</title>
              
-        <link href="css/bootstrap.css" rel="stylesheet" />
-        <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
+        <link href="../www/css/bootstrap.css" rel="stylesheet" />
+        <link href="../www/css/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
         <!--<link href="assets/css/rubick_pres.css" rel="stylesheet"/>-->
              <!--Fonts and icons     -->
         <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -18,7 +18,7 @@
         <!--<link href="assets/css/fonts/pe-icon-7-stroke.css" rel="stylesheet">-->
         <!--<link href="assets/css/fonts/Rubik-Fonts.css" rel="stylesheet" />-->
 	    <!--   core js files    -->
-	    <script src="js/jquery-1.11.2.min.js" type="text/javascript"></script>
+	    <script src="../www/js/jquery-1.11.2.min.js" type="text/javascript"></script>
 	    <script>
 	    $(document).bind('mobileinit',function(){
 	        $.mobile.changePage.defaults.changeHash = false;
@@ -27,11 +27,11 @@
 			$.mobile.allowCrossDomainPages = true; 
 	    });
 		</script> 
-	    <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
-	    <script src="js/bootstrap.js" type="text/javascript"></script>
+	    <script src="../www/js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+	    <script src="../www/js/bootstrap.js" type="text/javascript"></script>
         
     </head>
-    <body style="background: url('factavbak.png') center center fixed; 
+    <body style="background: url('../www/factavbak.png') center center fixed; 
     -webkit-background-size: 100%; 
     -moz-background-size: 100%; 
     -o-background-size: 100%; 
@@ -67,6 +67,7 @@
 							    //create table and insert some record
 							    function populateDB(tx) {
 							        tx.executeSql('CREATE TABLE IF NOT EXISTS SoccerPlayer (id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT NOT NULL, Club TEXT NOT NULL)');
+							        tx.executeSql('Delete from SoccerPlayer');
 							        tx.executeSql('INSERT INTO SoccerPlayer(Name,Club) VALUES ("Alexandre Pato", "AC Milan")');
 							        tx.executeSql('INSERT INTO SoccerPlayer(Name,Club) VALUES ("Van Persie", "Arsenal")');
 							    }
