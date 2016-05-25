@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+        <meta name="viewport" content="width=device-width" />
+          
+         <link rel="icon" type="image/png" href="img/N6.ico">
+                 
+        <title>Promo Cerveceria</title>
+             
+        <link href="css/bootstrap.css" rel="stylesheet" />
+        <!--<link href="assets/css/rubick_pres.css" rel="stylesheet"/>-->
+             <!--Fonts and icons     -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700' rel='stylesheet' type='text/css'>
+        <!--<link href="assets/css/fonts/pe-icon-7-stroke.css" rel="stylesheet">-->
+        <!--<link href="assets/css/fonts/Rubik-Fonts.css" rel="stylesheet" />-->
+        
+    </head>
+    <body style="background: url('cervezas-cervezas-cervezas.jpg') center center fixed; 
+    -webkit-background-size: 100%; 
+    -moz-background-size: 100%; 
+    -o-background-size: 100%; 
+    background-size: 100%; 
+    -webkit-background-size: cover; 
+    -moz-background-size: cover; 
+    -o-background-size: cover; 
+    background-size: cover; ">
+					<div class="row">&nbsp;</div>
+					<div class="row">&nbsp;</div>
+					<div class="row">
+						<div class="cols-xs-2 col-md-2">&nbsp;
+							</div>
+						<div class="cols-xs-8 col-md-8">
+							<div class="jumbotron">
+								<h1  style="text-align: center;">Promos Cerveceria</h1>
+								<div class="row-fluid">
+									<form method="POST" name="kym_promocerve01" id="kym_promocerve01">
+									<div class="row">
+										<div class="col-xs-12 col-md-12" style="text-align: center">
+											<input type="text" class="form-control" id="username" name="password" style='width: 100%' placeholder="Usuario" />
+										</div>
+									</div>
+									<div class="row">&nbsp;</div>
+									<div class="row">
+										<div class="col-xs-12 col-md-12" style="text-align: center">
+											<input type="password" class="form-control" id="password" name="password" style='width: 100%' placeholder="Password" />
+										</div>
+									</div>
+									<div class="row">&nbsp;</div>
+									<div class="row">
+										<div class="col-xs-12 col-md-12" style="text-align: center">
+											<button type="submit" class="btn btn-primary btn-lg" id="primer" name="primer" style='width: 100%' data-loading-text="Comprobando Usuario..."><i class="fa fa-sign-in"></i> Entrar</button>
+										</div>
+									</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+	 </body>
+    <!--   core js files    -->
+    <script src="js/jquery-1.11.2.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.js" type="text/javascript"></script>
+    <!--   file for adding vertical points where we activate the elements animation -->  
+    <!--<script type="text/javascript" src="assets/js/jquery.waypoints.min.js"></script>-->
+     <!--js library for devices recognition -->
+    <!--<script type="text/javascript" src="assets/js/modernizr.js"></script>-->
+     <!--script for google maps   -->
+    <!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
+<!--       file where we handle all the script from the Rubik page   -->
+    <!--<script type="text/javascript" src="assets/js/rubick_pres.js"></script>-->
+    
+    <!--<script type="text/javascript" src="assets/js/presentation-page/jquery.sharrre.js"></script>-->
+    <script>
+		 $(document).ready(function(){
+			$("#kym_promocerve01").submit(function(){
+				var datosUsuario = $("#username").val()
+				var datosPassword = $("#password").val()
+	
+				archivoValidacion = "http://52.88.148.105//wservices/cerveceria/cerve001.php?jsoncallback=?"
+				$.getJSON( archivoValidacion, { usuario:datosUsuario ,password:datosPassword})
+				.done(function(respuestaServer) {
+		
+					//alert(respuestaServer.mensaje + "\nGenerado en: " + respuestaServer.hora + "\n" +respuestaServer.generador)
+		
+					if(respuestaServer.validacion == "ok"){
+		  
+		 	/// si la validacion es correcta, muestra la pantalla "home"
+						//$.mobile.changePage("#home")
+						alert("Correcto");
+		  
+					}else{
+						alert("Erroneo");
+		  
+		  /// ejecutar una conducta cuando la validacion falla
+					}
+  
+				})
+				return false;
+				});
+			$('#username').focus();    
+			//$('#popover-usuario').popover();
+			//$('#popover-paswd').popover();
+			//$(".alert").alert();
+		});
+    </script>
+
+</html>
