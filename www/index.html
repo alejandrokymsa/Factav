@@ -62,6 +62,14 @@
 	 </body>
     <!--   core js files    -->
     <script src="js/jquery-1.11.2.min.js" type="text/javascript"></script>
+    <script>
+    $(document).bind('mobileinit',function(){
+        $.mobile.changePage.defaults.changeHash = false;
+        $.mobile.hashListeningEnabled = false;
+        $.mobile.pushStateEnabled = false;
+    });
+</script> 
+    <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.js" type="text/javascript"></script>
     <!--   file for adding vertical points where we activate the elements animation -->  
     <!--<script type="text/javascript" src="assets/js/jquery.waypoints.min.js"></script>-->
@@ -90,7 +98,7 @@
 				 	/// si la validacion es correcta, muestra la pantalla "home"
 					//$.mobile.changePage("#home")
 					//	alert("Correcto");
-						$.mobile.changePage("../index2.html", { transition: "slide" });
+						$.mobile.changePage("../www/home.html", { transition: "slide" });
 		  			}else{
 						alert("Erroneo");
 		   				/// ejecutar una conducta cuando la validacion falla
@@ -98,9 +106,10 @@
   				})
 				return false;
 			});
-
-
 			$('#username').focus();    
+
+		});
+
 			//$('#popover-usuario').popover();
 			//$('#popover-paswd').popover();
 			//$(".alert").alert();
