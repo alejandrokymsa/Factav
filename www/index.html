@@ -1185,6 +1185,32 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 				        $('#SoccerPlayerList').listview();
 				    }
 
+				    $("body").on('click','#SoccerPlayerList li',function(){
+				    	$("#indiv1 h2").text($(this).children().children().eq(0).text());
+				    	$("#indiv1 h3").text('Edad : 23');
+						$("#indiv1 h4").text('Posicion: Delantero');
+						$.mobile.changePage("#indiv1", {
+  							transition: "slide",
+  							reverse: false,
+  							changeHash: false
+						});    /////"#home", { transition: "slide" });
+				    });
+
+				    $("#home_foot a").click(function(){
+						$.mobile.changePage("#index", {
+  							transition: "slide",
+  							reverse: true,
+  							changeHash: false
+						});    /////"#home", { transition: "slide" });
+				    });
+
+				    $("#indiv1_foot a").click(function(){
+						$.mobile.changePage("#home", {
+  							transition: "slide",
+  							reverse: true,
+  							changeHash: false
+						});    /////"#home", { transition: "slide" });
+				    });
 				});
 
 					//$('#popover-usuario').popover();
@@ -1256,11 +1282,28 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
      	  <div role="main" class="ui-content">
 		     <ul id="SoccerPlayerList">
 		    </ul>
-			<div data-role="footer">
-				<h5>TecAvSoft</h5>
+			<div data-role="footer" id="home_foot">
+				<h5><a href="#" class="ui-btn ui-icon-carat-l ui-btn-icon-left"></a>TecAvSoft</h5>
+			</div><!-- /footer -->
+		  </div>
+		</div>
+		<div data-role="page" id="indiv1">
+		  <!--<div data-role="header" data-position="fixed" data-theme="b">-->
+		  <div data-role="header" data-theme="c">
+		    <h1>Detalle Jugador</h1>
+		  </div>
+     	  <div role="main" class="ui-content">
+		     <ul id="PlayerStat">
+		    <h2></h3>
+		    <h3></h3>	
+		    <h4></h3>
+		    </ul>
+			<div data-role="footer" id="indiv1_foot">
+				<h5><a href="#" class="ui-btn ui-icon-carat-l ui-btn-icon-left"></a>TecAvSoft</h5>
 			</div><!-- /footer -->		
 		  </div>
 		</div>
+
 	 </body>
     <!--   file for adding vertical points where we activate the elements animation -->  
     <!--<script type="text/javascript" src="assets/js/jquery.waypoints.min.js"></script>-->
